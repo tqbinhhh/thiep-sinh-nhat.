@@ -1,0 +1,240 @@
+:root {
+    --primary-color: #d92442;
+    --secondary-color: #ffc857;
+    --text-color: #4a4a4a;
+    --bg-color: #f7f0e8;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+/* --- Container chính của thiệp --- */
+.invitation-container {
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+    height: 80vh;
+    max-height: 600px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+/* --- Lớp phủ ban đầu --- */
+.invitation-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    transition: all 1s ease-in-out;
+    background-image: radial-gradient(circle at 50% 50%, var(--primary-color) 0%, transparent 100%);
+    animation: pulse-overlay 2s ease-in-out infinite;
+}
+
+.invitation-overlay.opened {
+    opacity: 0;
+    transform: scale(1.5);
+    pointer-events: none;
+}
+
+.invitation-title-cover {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+.open-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: bounce-button 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+.open-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.open-button .heart-icon {
+    width: 30px;
+    height: 30px;
+    fill: var(--primary-color);
+    margin-right: 12px;
+    animation: pulse 1.5s infinite;
+}
+
+/* --- Nội dung thiệp --- */
+.invitation-content {
+    opacity: 0;
+    transition: opacity 1s ease 0.5s;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.invitation-content.visible {
+    opacity: 1;
+}
+
+.invitation-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.invitation-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+    background-color: white;
+}
+
+.invitation-text {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.host-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.invitation-title {
+    font-size: 1.5em;
+    color: var(--text-color);
+}
+
+.guest-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    margin-top: 10px;
+}
+
+.message {
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin-top: 5px;
+}
+
+.details {
+    margin-top: 30px;
+    border-top: 2px solid #eee;
+    padding-top: 20px;
+    font-size: 1.1em;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.details strong {
+    color: var(--primary-color);
+}
+
+/* --- Animations --- */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+@keyframes bounce-button {
+    0% { transform: scale(0); }
+    60% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes pulse-overlay {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* --- Responsive cho màn hình nhỏ hơn 640px --- */
+@media (max-width: 640px) {
+    .invitation-container {
+        padding: 20px; /* Giảm padding */
+    }
+    .invitation-title-cover {
+        font-size: 2em; /* Giảm kích thước chữ tiêu đề */
+    }
+    .open-button {
+        padding: 12px 24px; /* Giảm padding nút */
+        font-size: 1.2em; /* Giảm kích thước chữ nút */
+    }
+    .open-button .heart-icon {
+        width: 25px; /* Giảm kích thước icon */
+        height: 25px;
+    }
+    .invitation-image {
+        width: 100px; /* Giảm kích thước hình ảnh */
+        height: 100px;
+    }
+    .host-name {
+        font-size: 1.8em; /* Giảm kích thước tên người mời */
+    }
+    .invitation-title {
+        font-size: 1.2em; /* Giảm kích thước tiêu đề mời */
+    }
+    .guest-name {
+        font-size: 2.2em; /* Giảm kích thước tên khách mời */
+    }
+    .message {
+        font-size: 1em; /* Giảm kích thước lời nhắn */
+    }
+    .details {
+        font-size: 0.9em; /* Giảm kích thước chi tiết */
+        padding-top: 15px; /* Giảm padding */
+    }
+}

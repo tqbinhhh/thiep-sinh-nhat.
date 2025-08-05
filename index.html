@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lời mời dự tiệc sinh nhật!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="invitation-container">
+
+        <div class="invitation-overlay" id="invitation-overlay">
+            <h1 class="invitation-title-cover">Bạn có một lời mời!</h1>
+            <button class="open-button" id="open-button">
+                <svg class="heart-icon" viewBox="0 0 24 24">
+                    <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+                </svg>
+                <span>Mở thiệp</span>
+            </button>
+        </div>
+
+        <div class="invitation-content" id="invitation-content">
+            <div class="invitation-card">
+                <img src="./bánh_kem_sinh_nhật-removebg-preview.png" alt="Bánh sinh nhật" class="invitation-image">
+                <div class="invitation-text">
+                    <span class="host-name">Quoc Binh</span>
+                    <span class="invitation-title">Trân trọng kính mời</span>
+                    <span class="guest-name">Anh em cột chèo</span>
+                    <span class="message">Đến tham dự buổi tiệc sinh nhật của Quốc Bình!</span>
+                </div>
+                <div class="details">
+                    <p><strong>Thời gian:</strong> 18:30, Thứ Tư, ngày 06/08/2025</p>
+                    <p><strong>Địa điểm:</strong> Đường Ray Quán, 308 Trần Cao Vân, Thành phố Đà Nẵng</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="birthday-song" src="birthday_song.mp3" preload="auto"></audio>
+    
+    <script src="main.js"></script>
+</body>
+</html>
